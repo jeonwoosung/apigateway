@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: zuul-test
+
+server:
+  port: 9080
+
+ribbon:
+  eureka:
+    enabled: false
+
+zuul:
+  sensitive-headers:
+  host:
+    connect-timeout-millis: 600000
+    socket-timeout-millis: 600000
+  routes:
+    zabbix:
+      path: /zabbix/**
+      url: http://zabbix5.oplab.co.kr
+      stripPrefix: true
+    clm:
+      path: /clm/**
+      url: http://zabbix5.oplab.co.kr
+      stripPrefix: true
+    com:
+      path: /zabbix/**
+      url: http://zabbix5.oplab.co.kr
+      stripPrefix: true
